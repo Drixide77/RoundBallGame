@@ -10,7 +10,7 @@ namespace RoundBallGame.Systems
         [Header("UI Elements")]
         [SerializeField] private Button playButton;
         [SerializeField] private Button exitButton;
-        
+        [Space(10)]
         [Header("Assets")]
         [SerializeField] private SceneAsset levelScene;
         
@@ -22,6 +22,7 @@ namespace RoundBallGame.Systems
         
         private void OnPlayButtonClicked()
         {
+            DataService.Instance.CurrentLevelIndex = 0;
             SceneManager.LoadSceneAsync(levelScene.name, LoadSceneMode.Single);
         }
         

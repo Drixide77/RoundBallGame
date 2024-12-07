@@ -1,0 +1,35 @@
+using UnityEngine;
+
+namespace RoundBallGame.Gameplay
+{
+    public class PlayerBallController : MonoBehaviour
+    {
+        private Rigidbody2D rigidBody;
+        
+        private void Awake()
+        {
+            rigidBody = GetComponent<Rigidbody2D>();
+        }
+
+        public void Initialize()
+        {
+            rigidBody.velocity = Vector2.zero;
+            transform.rotation = Quaternion.identity;
+        }
+        
+        public void Show()
+        {
+            gameObject.SetActive(true);
+        }
+        
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+        }
+        
+        public void MoveTo(Vector3 position)
+        {
+            transform.position = position;
+        }
+    }
+}
