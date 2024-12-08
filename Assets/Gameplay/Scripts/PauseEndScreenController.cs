@@ -1,4 +1,5 @@
 using System;
+using RoundBallGame.Systems;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ namespace RoundBallGame.Gameplay
         public Action OnNextLevelButtonClicked;
         public Action OnRetryButtonClicked;
         public Action OnMenuButtonClicked;
-        public bool isShown = false;
+        public bool IsShown = false;
         public PauseEndScreenType currentType = PauseEndScreenType.Pause;
         
         [Header("UI Elements")]
@@ -39,7 +40,7 @@ namespace RoundBallGame.Gameplay
             canvasGroup = GetComponent<CanvasGroup>();
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
-            isShown = false;
+            IsShown = false;
             
             resumeButton.onClick.AddListener(() => OnResumeButtonClicked?.Invoke());
             nextLevelButton.onClick.AddListener(() => OnNextLevelButtonClicked?.Invoke());
@@ -69,7 +70,7 @@ namespace RoundBallGame.Gameplay
                 case PauseEndScreenType.LevelComplete:
                     messageText.text = LevelCompleteScreenMessage;
                     resumeButton.gameObject.SetActive(false);
-                    nextLevelButton.gameObject.SetActive(true);
+                    nextLevelButton.gameObject.SetActive(DataService.Instance.NextLevelExists());
                     retryButton.gameObject.SetActive(true);
                     menuButton.gameObject.SetActive(true);
                     break;
@@ -82,14 +83,14 @@ namespace RoundBallGame.Gameplay
                     break;
             }
             currentType = type;
-            isShown = true;
+            IsShown = true;
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
         }
         
         public void Hide()
         {
-            isShown = false;
+            IsShown = false;
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
         }

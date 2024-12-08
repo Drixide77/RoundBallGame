@@ -1,4 +1,3 @@
-using System;
 using RoundBallGame.Gameplay.Levels;
 using RoundBallGame.Systems;
 using UnityEditor;
@@ -18,13 +17,13 @@ namespace RoundBallGame.Gameplay
         [SerializeField] private PauseEndScreenController pauseEndScreenController;
         [Space(10)]
         [Header("Levels")]
-        [SerializeField] private LevelCollectionSO levelCollection;
         [SerializeField] private Transform levelParent;
         [FormerlySerializedAs("levelScene")]
         [Space(10)]
         [Header("Assets")]
         [SerializeField] private SceneAsset mainMenuScene;
 
+        private LevelCollectionSO levelCollection;
         private LevelDescriptor currentLevelInstance;
         private PlayerBallController playerInstance;
 
@@ -34,6 +33,7 @@ namespace RoundBallGame.Gameplay
             playerInstance = Instantiate(playerPrefab,  Vector3.zero, Quaternion.identity, playerParent).GetComponent<PlayerBallController>();
             playerInstance.Initialize();
             playerInstance.Hide();
+            levelCollection = DataService.Instance.GetLevelCollection();
             AddEventCallbacks();
         }
 
@@ -59,7 +59,7 @@ namespace RoundBallGame.Gameplay
 
         private void HandlePauseInput()
         {
-            if (pauseEndScreenController.isShown)
+            if (pauseEndScreenController.IsShown)
             {
                 if (pauseEndScreenController.currentType == PauseEndScreenController.PauseEndScreenType.Pause) OnResumeLevel();
             }
@@ -80,7 +80,7 @@ namespace RoundBallGame.Gameplay
         
         private void InitializeLevel()
         {
-            int currentLevelIndex = DataService.Instance.CurrentLevelIndex;
+            int currentLevelIndex = DataService.Instance.GetCurrentLevel();
             currentLevelInstance = Instantiate(levelCollection.Levels[currentLevelIndex].gameObject, Vector3.zero, Quaternion.identity, levelParent).GetComponent<LevelDescriptor>();
             currentLevelInstance.Goal.OnGoalReached += OnGoalReached;
         }
@@ -112,6 +112,8 @@ namespace RoundBallGame.Gameplay
         private void OnGoalReached()
         {
             playerInstance.Hide();
+            Time.timeScale = 0f;
+            DataService.Instance.SetLevelProgress(DataService.Instance.GetCurrentLevel(), true);
             pauseEndScreenController.Show(PauseEndScreenController.PauseEndScreenType.LevelComplete);
         }
 
@@ -136,7 +138,7 @@ namespace RoundBallGame.Gameplay
         private void OnNextLevelSelected()
         {
             CleanUpLevel();
-            DataService.Instance.CurrentLevelIndex++;
+            DataService.Instance.SetCurrentLevel(DataService.Instance.GetCurrentLevel() + 1);
             pauseEndScreenController.Hide();
             InitializeLevel();
             StartLevel();
