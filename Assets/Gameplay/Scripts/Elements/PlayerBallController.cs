@@ -30,6 +30,12 @@ namespace RoundBallGame.Gameplay
         public void MoveTo(Vector3 position)
         {
             transform.position = position;
+            rigidBody.velocity = Vector2.zero;
+        }
+        
+        public void ApplyVelocity(Vector2 velocity)
+        {
+            rigidBody.velocity = velocity;
         }
     }
 }

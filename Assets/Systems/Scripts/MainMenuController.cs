@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +15,7 @@ namespace RoundBallGame.Systems
         [Space(10)]
         [Header("Assets")]
         [SerializeField] private GameObject levelButtonPrefab;
-        [SerializeField] private SceneAsset levelScene;
+        [SerializeField] private string levelSceneName;
         
         private void Awake()
         {
@@ -74,7 +73,7 @@ namespace RoundBallGame.Systems
             for (int i = 0; i < DataService.Instance.GetLevelCollection().Levels.Length; i++)
             {
                 LevelButtonController levelButton = Instantiate(levelButtonPrefab, levelButtonsParent).GetComponent<LevelButtonController>();
-                levelButton.SetButtonInfo(i, DataService.Instance.GetLevelProgress(i), levelScene.name);
+                levelButton.SetButtonInfo(i, DataService.Instance.GetLevelProgress(i), levelSceneName);
             }
         }
     }

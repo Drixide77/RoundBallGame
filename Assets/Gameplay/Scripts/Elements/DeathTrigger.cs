@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace RoundBallGame.Gameplay.Levels
+namespace RoundBallGame.Gameplay
 {
-    public class LevelGoalController : MonoBehaviour
+    public class DeathTrigger : MonoBehaviour
     {
-        public Action OnGoalReached;
+        public Action OnDeathTriggerTouched;
         private bool hasBeenTriggered = false;
 
         public void Initialize()
@@ -21,7 +21,7 @@ namespace RoundBallGame.Gameplay.Levels
                 if (!hasBeenTriggered)
                 {
                     hasBeenTriggered = true;
-                    OnGoalReached?.Invoke();
+                    OnDeathTriggerTouched?.Invoke();
                 }
             }
         }

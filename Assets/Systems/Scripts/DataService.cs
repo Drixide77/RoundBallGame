@@ -18,7 +18,7 @@ namespace RoundBallGame.Systems
         private string saveFilePath;
         private FileStream fileStream;
         // Used for going from the menu to the game scene or when hitting the Next Level button
-        private int currentLevelIndex = -1;
+        private int currentLevelIndex = 0;
         
         private void Awake()
         {

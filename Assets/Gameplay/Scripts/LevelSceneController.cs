@@ -1,9 +1,7 @@
 using RoundBallGame.Gameplay.Levels;
 using RoundBallGame.Systems;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace RoundBallGame.Gameplay
 {
@@ -18,10 +16,9 @@ namespace RoundBallGame.Gameplay
         [Space(10)]
         [Header("Levels")]
         [SerializeField] private Transform levelParent;
-        [FormerlySerializedAs("levelScene")]
         [Space(10)]
         [Header("Assets")]
-        [SerializeField] private SceneAsset mainMenuScene;
+        [SerializeField] private string mainMenuSceneName;
 
         private LevelCollectionSO levelCollection;
         private LevelDescriptor currentLevelInstance;
@@ -72,6 +69,14 @@ namespace RoundBallGame.Gameplay
         private void StartLevel()
         {
             currentLevelInstance.Goal.Initialize();
+            foreach (var deathTrigger in currentLevelInstance.DeathTriggers)
+            {
+                deathTrigger.Initialize();
+            }
+            foreach (var cannon in currentLevelInstance.Cannons)
+            {
+                cannon.Initialize();
+            }
             playerInstance.Initialize();
             playerInstance.MoveTo(currentLevelInstance.StartPositon.position);
             playerInstance.Show();
@@ -83,12 +88,20 @@ namespace RoundBallGame.Gameplay
             int currentLevelIndex = DataService.Instance.GetCurrentLevel();
             currentLevelInstance = Instantiate(levelCollection.Levels[currentLevelIndex].gameObject, Vector3.zero, Quaternion.identity, levelParent).GetComponent<LevelDescriptor>();
             currentLevelInstance.Goal.OnGoalReached += OnGoalReached;
+            foreach (var deathTrigger in currentLevelInstance.DeathTriggers)
+            {
+                deathTrigger.OnDeathTriggerTouched += OnDeathTriggerTouched;
+            }
         }
         
         private void CleanUpLevel()
         {
             if (currentLevelInstance == null) return;
             currentLevelInstance.Goal.OnGoalReached -= OnGoalReached;
+            foreach (var deathTrigger in currentLevelInstance.DeathTriggers)
+            {
+                deathTrigger.OnDeathTriggerTouched -= OnDeathTriggerTouched;
+            }
             Destroy(currentLevelInstance.gameObject);
         }
         
@@ -115,6 +128,13 @@ namespace RoundBallGame.Gameplay
             Time.timeScale = 0f;
             DataService.Instance.SetLevelProgress(DataService.Instance.GetCurrentLevel(), true);
             pauseEndScreenController.Show(PauseEndScreenController.PauseEndScreenType.LevelComplete);
+        }
+
+        private void OnDeathTriggerTouched()
+        {
+            playerInstance.Hide();
+            Time.timeScale = 0f;
+            pauseEndScreenController.Show(PauseEndScreenController.PauseEndScreenType.GameOver);
         }
 
         private void OnPauseLevel()
@@ -147,7 +167,7 @@ namespace RoundBallGame.Gameplay
         private void OnQuitToMenu()
         {
             CleanUpLevel();
-            SceneManager.LoadSceneAsync(mainMenuScene.name, LoadSceneMode.Single);
+            SceneManager.LoadSceneAsync(mainMenuSceneName, LoadSceneMode.Single);
         }
     }
 }
