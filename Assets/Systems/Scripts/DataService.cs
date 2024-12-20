@@ -8,8 +8,7 @@ namespace RoundBallGame.Systems
     public class DataService : MonoBehaviour
     {
         // Singleton pattern
-        public static DataService Instance;
-        private DataService _instance;
+        public static DataService Instance { get; private set; }
         
         [Header("Level Data")]
         [SerializeField] private LevelCollectionSO levelCollection;
