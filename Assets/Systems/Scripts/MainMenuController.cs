@@ -47,12 +47,7 @@ namespace RoundBallGame.Systems
         
         private void OnExitButtonClicked()
         {
-            Debug.Log("Exiting game...");
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
-#endif
+            AppControlService.Instance.ExitApplication();
         }
 
         private void OnLevelSelectBackButtonClicked()

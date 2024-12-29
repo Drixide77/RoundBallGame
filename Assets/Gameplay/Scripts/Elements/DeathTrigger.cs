@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace RoundBallGame.Gameplay
+namespace RoundBallGame.Gameplay.Elements
 {
     public class DeathTrigger : MonoBehaviour
     {

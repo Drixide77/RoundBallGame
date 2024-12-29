@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RoundBallGame.Gameplay
+namespace RoundBallGame.Gameplay.Elements
 {
     public class PlayerBallController : MonoBehaviour
     {

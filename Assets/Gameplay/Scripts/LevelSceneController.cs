@@ -1,7 +1,10 @@
+using RoundBallGame.Gameplay.Camera;
+using RoundBallGame.Gameplay.Elements;
 using RoundBallGame.Gameplay.Levels;
 using RoundBallGame.Systems;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace RoundBallGame.Gameplay
 {
@@ -19,6 +22,9 @@ namespace RoundBallGame.Gameplay
         [Space(10)]
         [Header("Assets")]
         [SerializeField] private string mainMenuSceneName;
+        [Space(10)]
+        [Header("Controllers")]
+        [SerializeField] private CameraController cameraController;
 
         private LevelCollectionSO levelCollection;
         private LevelDescriptor currentLevelInstance;
@@ -31,6 +37,7 @@ namespace RoundBallGame.Gameplay
             playerInstance.Initialize();
             playerInstance.Hide();
             levelCollection = DataService.Instance.GetLevelCollection();
+            cameraController.SetTarget(playerInstance.transform);
             AddEventCallbacks();
         }
 
@@ -75,11 +82,12 @@ namespace RoundBallGame.Gameplay
             }
             foreach (var cannon in currentLevelInstance.Cannons)
             {
-                cannon.Initialize();
+                cannon.Initialize(cameraController);
             }
             playerInstance.Initialize();
             playerInstance.MoveTo(currentLevelInstance.StartPositon.position);
             playerInstance.Show();
+            cameraController.MoveToTarget(true);
             Time.timeScale = 1f;
         }
         

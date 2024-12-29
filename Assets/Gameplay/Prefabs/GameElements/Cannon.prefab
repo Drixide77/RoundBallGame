@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 8138417685960049620}
   - component: {fileID: 1584517551081821941}
   m_Layer: 0
-  m_Name: Arrow1
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,5 +394,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonPivot: {fileID: 3904769290882054004}
   playerBallOriginOnShoot: {fileID: 5339876057707386486}
+  aimingCameraTarget: {fileID: 0}
   cannonGraphic: {fileID: 1640972502956105383}
   shootingVelocity: 25

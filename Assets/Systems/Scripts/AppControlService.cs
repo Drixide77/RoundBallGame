@@ -50,5 +50,15 @@ namespace RoundBallGame.Systems
                 Screen.SetResolution(windowedResolution.x, windowedResolution.y, false);
             }
         }
+
+        public void ExitApplication()
+        {
+            Debug.Log("Exiting game...");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using RoundBallGame.Gameplay.Camera;
 using UnityEngine;
 
-namespace RoundBallGame.Gameplay
+namespace RoundBallGame.Gameplay.Elements
 {
     public class CannonController : MonoBehaviour
     {
@@ -11,17 +11,19 @@ namespace RoundBallGame.Gameplay
         [SerializeField] private GameObject cannonGraphic;
         [Header("Settings")]
         [SerializeField] private float shootingVelocity = 25f;
+        [Header("Scene References")]
+        [SerializeField] private Transform aimingCameraTarget;
         
         private bool inAimingMode = false;
         private BoxCollider2D cannonCollider;
         private PlayerBallController playerReference;
-        private Camera mainCamera;
+        private UnityEngine.Camera mainCamera;
+        private CameraController _cameraController;
 
         private void Awake()
         {
             cannonCollider = GetComponent<BoxCollider2D>();
-            mainCamera = Camera.main;
-            Initialize();
+            mainCamera = UnityEngine.Camera.main;
         }
 
         private void Update()
@@ -40,16 +42,18 @@ namespace RoundBallGame.Gameplay
             }
         }
 
-        public void Initialize()
+        public void Initialize(CameraController cameraController)
         {
             cannonGraphic.SetActive(false);
             inAimingMode = false;
             cannonCollider.enabled = true;
+            _cameraController = cameraController;
         }
 
         private void ShootPlayerBall()
         {
             inAimingMode = false;
+            _cameraController.SetCannonMode(false);
             cannonGraphic.SetActive(false);
             playerReference.MoveTo(playerBallOriginOnShoot.position);
             playerReference.Show();
@@ -64,6 +68,9 @@ namespace RoundBallGame.Gameplay
                 playerReference = other.gameObject.GetComponent<PlayerBallController>();
                 playerReference.Hide();
                 inAimingMode = true;
+                _cameraController.SetCannonMode(true);
+                _cameraController.SetTarget(aimingCameraTarget, false);
+                _cameraController.MoveToTarget();
                 cannonCollider.enabled = false;
                 cannonGraphic.SetActive(true);
             }
