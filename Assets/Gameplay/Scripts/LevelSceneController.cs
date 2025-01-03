@@ -5,7 +5,6 @@ using RoundBallGame.Systems;
 using RoundBallGame.Systems.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace RoundBallGame.Gameplay
 {
@@ -50,6 +49,7 @@ namespace RoundBallGame.Gameplay
 
         private void OnDestroy()
         {
+            Time.timeScale = 1f;
             CleanUpLevel();
             RemoveEventCallbacks();
         }

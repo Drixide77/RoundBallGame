@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,19 +8,40 @@ namespace RoundBallGame.Systems
     {
         [Header("UI Elements")]
         [SerializeField] private CanvasGroup mainPanelCanvasGroup;
+        [SerializeField] private CanvasGroup buttonContainerCanvasGroup;
         [SerializeField] private Button playButton;
         [SerializeField] private Button exitButton;
         [SerializeField] private CanvasGroup levelSelectPanelCanvasGroup;
         [SerializeField] private Button levelSelectBackButton;
         [SerializeField] private RectTransform levelButtonsParent;
         [Space(10)]
+        [Header("Animation Settings")]
+        [SerializeField] private float fadeInDelay;
+        [SerializeField] private float alphaStepAmount;
+        [SerializeField] private float stepTime;
+        [SerializeField] private float holdTime;
+        [Space(10)]
         [Header("Assets")]
         [SerializeField] private GameObject levelButtonPrefab;
         [SerializeField] private string levelSceneName;
+
+        private Coroutine animationCoroutine;
         
         private void Awake()
         {
-            SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
+            Time.timeScale = 1f; // Making sure so it doesn't affect the animation coroutine
+            
+            if (AppControlService.Instance.firstTimeOnMainMenu)
+            {
+                SetCanvasGroupEnabled(mainPanelCanvasGroup, false);
+                SetCanvasGroupEnabled(buttonContainerCanvasGroup, false);
+            }
+            else
+            {
+                SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
+                SetCanvasGroupEnabled(buttonContainerCanvasGroup, true);
+            }
+
             playButton.onClick.AddListener(OnPlayButtonClicked);
             exitButton.onClick.AddListener(OnExitButtonClicked);
             SetCanvasGroupEnabled(levelSelectPanelCanvasGroup, false);
@@ -28,6 +50,12 @@ namespace RoundBallGame.Systems
         
         private void Start()
         {
+            if (AppControlService.Instance.firstTimeOnMainMenu)
+            {
+                animationCoroutine = StartCoroutine(AnimateMenuCoroutine());
+                AppControlService.Instance.firstTimeOnMainMenu = false;
+            }
+
             // Done on Start to ensure DataService has been initialized
             CreateLevelButtons();
         }
@@ -37,6 +65,7 @@ namespace RoundBallGame.Systems
             playButton.onClick.RemoveAllListeners();
             exitButton.onClick.RemoveAllListeners();
             levelSelectBackButton.onClick.RemoveAllListeners();
+            if (animationCoroutine != null) StopCoroutine(animationCoroutine);
         }
         
         private void OnPlayButtonClicked()
@@ -70,6 +99,19 @@ namespace RoundBallGame.Systems
                 LevelButtonController levelButton = Instantiate(levelButtonPrefab, levelButtonsParent).GetComponent<LevelButtonController>();
                 levelButton.SetButtonInfo(i, DataService.Instance.GetLevelProgress(i), levelSceneName);
             }
+        }
+        
+        private IEnumerator AnimateMenuCoroutine()
+        {
+            yield return new WaitForSeconds(fadeInDelay);
+            while (mainPanelCanvasGroup.alpha < 1f)
+            {
+                mainPanelCanvasGroup.alpha += alphaStepAmount;
+                yield return new WaitForSeconds(stepTime);
+            }
+            SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
+            yield return new WaitForSeconds(holdTime);
+            SetCanvasGroupEnabled(buttonContainerCanvasGroup, true);
         }
     }
 }

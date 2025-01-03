@@ -11,6 +11,8 @@ namespace RoundBallGame.Systems
         
         [SerializeField] private Vector2Int windowedResolution = new Vector2Int(1280, 720);
         private bool fullscreen = false;
+
+        public bool firstTimeOnMainMenu = true;
         
         private void Awake()
         {
