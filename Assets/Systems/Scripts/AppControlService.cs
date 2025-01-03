@@ -1,4 +1,5 @@
 using System;
+using RoundBallGame.Systems.Data;
 using UnityEngine;
 
 namespace RoundBallGame.Systems
@@ -26,7 +27,7 @@ namespace RoundBallGame.Systems
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F10))
+            if (Input.GetKeyDown(KeybindingsDefinition.FullscreenToggleKey))
             {
                 ToggleFullscreen();
             }

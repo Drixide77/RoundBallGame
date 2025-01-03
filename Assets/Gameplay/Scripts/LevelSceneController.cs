@@ -2,6 +2,7 @@ using RoundBallGame.Gameplay.Camera;
 using RoundBallGame.Gameplay.Elements;
 using RoundBallGame.Gameplay.Levels;
 using RoundBallGame.Systems;
+using RoundBallGame.Systems.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -55,9 +56,14 @@ namespace RoundBallGame.Gameplay
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeybindingsDefinition.PauseKey1) || Input.GetKeyDown(KeybindingsDefinition.PauseKey1))
             {
                 HandlePauseInput();
+            }
+
+            if (Input.GetKeyDown(KeybindingsDefinition.RestartLevelKey))
+            {
+                OnRestartLevel();
             }
         }
 
@@ -87,6 +93,7 @@ namespace RoundBallGame.Gameplay
             playerInstance.Initialize();
             playerInstance.MoveTo(currentLevelInstance.StartPositon.position);
             playerInstance.Show();
+            cameraController.SetCannonMode(false);
             cameraController.MoveToTarget(true);
             Time.timeScale = 1f;
         }

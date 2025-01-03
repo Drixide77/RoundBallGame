@@ -14,6 +14,7 @@ namespace RoundBallGame.Gameplay.Elements
         public void Initialize()
         {
             rigidBody.velocity = Vector2.zero;
+            rigidBody.angularVelocity = 0f;
             transform.rotation = Quaternion.identity;
         }
         
