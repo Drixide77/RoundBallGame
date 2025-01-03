@@ -30,18 +30,9 @@ namespace RoundBallGame.Systems
         private void Awake()
         {
             Time.timeScale = 1f; // Making sure so it doesn't affect the animation coroutine
-            
-            if (AppControlService.Instance.firstTimeOnMainMenu)
-            {
-                SetCanvasGroupEnabled(mainPanelCanvasGroup, false);
-                SetCanvasGroupEnabled(buttonContainerCanvasGroup, false);
-            }
-            else
-            {
-                SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
-                SetCanvasGroupEnabled(buttonContainerCanvasGroup, true);
-            }
 
+            SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
+            SetCanvasGroupEnabled(buttonContainerCanvasGroup, true);
             playButton.onClick.AddListener(OnPlayButtonClicked);
             exitButton.onClick.AddListener(OnExitButtonClicked);
             SetCanvasGroupEnabled(levelSelectPanelCanvasGroup, false);
@@ -50,8 +41,11 @@ namespace RoundBallGame.Systems
         
         private void Start()
         {
+            // Done on Start to ensure AppControlService has been initialized
             if (AppControlService.Instance.firstTimeOnMainMenu)
             {
+                SetCanvasGroupEnabled(mainPanelCanvasGroup, false);
+                SetCanvasGroupEnabled(buttonContainerCanvasGroup, false);
                 animationCoroutine = StartCoroutine(AnimateMenuCoroutine());
                 AppControlService.Instance.firstTimeOnMainMenu = false;
             }

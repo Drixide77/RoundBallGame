@@ -1,4 +1,3 @@
-using System;
 using RoundBallGame.Systems.Data;
 using UnityEngine;
 
@@ -12,13 +11,14 @@ namespace RoundBallGame.Systems
         [SerializeField] private Vector2Int windowedResolution = new Vector2Int(1280, 720);
         private bool fullscreen = false;
 
-        public bool firstTimeOnMainMenu = true;
+        [HideInInspector] public bool firstTimeOnMainMenu;
         
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
+                Initialize();
                 DontDestroyOnLoad(gameObject);
             }
             else
@@ -33,6 +33,11 @@ namespace RoundBallGame.Systems
             {
                 ToggleFullscreen();
             }
+        }
+
+        private void Initialize()
+        {
+            firstTimeOnMainMenu = true;
         }
         
         public void ToggleFullscreen()
