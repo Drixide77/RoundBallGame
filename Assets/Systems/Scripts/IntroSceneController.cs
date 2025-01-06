@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,8 @@ namespace RoundBallGame.Systems
         [Space(10)]
         [Header("Assets")]
         [SerializeField] private string mainMenuSceneName;
+
+        private Coroutine animationCoroutine;
         
         private void Awake()
         {
@@ -32,7 +35,20 @@ namespace RoundBallGame.Systems
 
         private void Start()
         {
-            StartCoroutine(PresentLogosCoroutine());
+            animationCoroutine = StartCoroutine(PresentLogosCoroutine());
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
+            {
+                LoadScene();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (animationCoroutine != null) StopCoroutine(animationCoroutine);
         }
 
         private IEnumerator PresentLogosCoroutine()

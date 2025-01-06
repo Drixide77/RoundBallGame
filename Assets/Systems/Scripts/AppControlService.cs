@@ -8,10 +8,12 @@ namespace RoundBallGame.Systems
         // Singleton pattern
         public static AppControlService Instance { get; private set; }
         
-        [SerializeField] private Vector2Int windowedResolution = new Vector2Int(1280, 720);
-        private bool fullscreen = false;
-
         [HideInInspector] public bool firstTimeOnMainMenu;
+        
+        [SerializeField] private Vector2Int windowedResolution = new (1280, 720);
+        [SerializeField] private float[] resolutionMultipliers = { 1f, 2f, 3f };
+        private bool fullscreen = false;
+        private int resolutionIndex = 0;
         
         private void Awake()
         {
@@ -19,7 +21,6 @@ namespace RoundBallGame.Systems
             {
                 Instance = this;
                 Initialize();
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
@@ -55,8 +56,24 @@ namespace RoundBallGame.Systems
             }
             else
             {
-                Screen.SetResolution(windowedResolution.x, windowedResolution.y, false);
+                SetResolution(resolutionIndex);
             }
+        }
+
+        public int GetResolutionPresetCount()
+        {
+            return resolutionMultipliers.Length;
+        }
+
+        public float GetCurrentResolutionMultiplier()
+        {
+            return resolutionMultipliers[resolutionIndex];
+        }
+
+        public void SetResolution(int index, bool fullscreen = false)
+        {
+            resolutionIndex = Mathf.Clamp(index, 0, resolutionMultipliers.Length - 1);
+            Screen.SetResolution(Mathf.RoundToInt(windowedResolution.x * resolutionMultipliers[resolutionIndex]), Mathf.RoundToInt(windowedResolution.y * resolutionMultipliers[resolutionIndex]), fullscreen);
         }
 
         public void ExitApplication()

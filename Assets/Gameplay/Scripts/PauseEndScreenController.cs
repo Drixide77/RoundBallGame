@@ -42,6 +42,8 @@ namespace RoundBallGame.Gameplay
             canvasGroup.interactable = false;
             IsShown = false;
             
+            GameSettingsController.Instance.HideSettings();
+            
             resumeButton.onClick.AddListener(() => OnResumeButtonClicked?.Invoke());
             nextLevelButton.onClick.AddListener(() => OnNextLevelButtonClicked?.Invoke());
             retryButton.onClick.AddListener(() => OnRetryButtonClicked?.Invoke());
@@ -66,6 +68,7 @@ namespace RoundBallGame.Gameplay
                     nextLevelButton.gameObject.SetActive(false);
                     retryButton.gameObject.SetActive(true);
                     menuButton.gameObject.SetActive(true);
+                    GameSettingsController.Instance.ShowSettings();
                     break;
                 case PauseEndScreenType.LevelComplete:
                     messageText.text = LevelCompleteScreenMessage;
@@ -93,6 +96,7 @@ namespace RoundBallGame.Gameplay
             IsShown = false;
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
+            GameSettingsController.Instance.HideSettings();
         }
     }
 }

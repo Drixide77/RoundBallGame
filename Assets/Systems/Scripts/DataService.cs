@@ -24,7 +24,6 @@ namespace RoundBallGame.Systems
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {

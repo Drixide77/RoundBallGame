@@ -46,8 +46,13 @@ namespace RoundBallGame.Systems
             {
                 SetCanvasGroupEnabled(mainPanelCanvasGroup, false);
                 SetCanvasGroupEnabled(buttonContainerCanvasGroup, false);
+                GameSettingsController.Instance.HideSettings();
                 animationCoroutine = StartCoroutine(AnimateMenuCoroutine());
                 AppControlService.Instance.firstTimeOnMainMenu = false;
+            }
+            else
+            {
+                GameSettingsController.Instance.ShowSettings();
             }
 
             // Done on Start to ensure DataService has been initialized
@@ -106,6 +111,7 @@ namespace RoundBallGame.Systems
             SetCanvasGroupEnabled(mainPanelCanvasGroup, true);
             yield return new WaitForSeconds(holdTime);
             SetCanvasGroupEnabled(buttonContainerCanvasGroup, true);
+            GameSettingsController.Instance.ShowSettings();
         }
     }
 }
