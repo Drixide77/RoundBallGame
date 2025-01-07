@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 01
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6666667, g: 0, b: 0.53333336, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -271,3 +271,5 @@ MonoBehaviour:
   image: {fileID: 5695474351016465986}
   text: {fileID: 8541736783643945782}
   button: {fileID: 5888952452347065099}
+  defaultColor: {r: 0.6666667, g: 0, b: 0.53333336, a: 1}
+  completeColor: {r: 1, g: 0.2784314, b: 0.89019614, a: 1}

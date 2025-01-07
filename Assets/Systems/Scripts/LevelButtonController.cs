@@ -10,11 +10,14 @@ namespace RoundBallGame.Systems
     {
         private int levelIndex;
         private LevelProgressData levelProgress;
-        
+        [Header("UI Components")]
         [SerializeField] private Image image;
         [SerializeField] private TMP_Text text;
         [SerializeField] private Button button;
-        string levelScene = "SCN_Level";
+        private string levelScene = "SCN_Level";
+        [Header("Settings")]
+        [SerializeField] private Color defaultColor;
+        [SerializeField] private Color completeColor;
         
         private void Awake()
         {
@@ -31,7 +34,7 @@ namespace RoundBallGame.Systems
             this.levelIndex = levelIndex;
             this.levelProgress = levelProgress;
             levelScene = levelSceneName;
-            image.color = levelProgress.IsCompleted ? Color.green : Color.white;
+            image.color = levelProgress.IsCompleted ? completeColor : defaultColor;
             string buttonText = "";
             if (levelIndex < 9) buttonText += "0";
             buttonText += levelIndex + 1;

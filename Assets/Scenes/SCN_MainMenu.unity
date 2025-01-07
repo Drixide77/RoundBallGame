@@ -181,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.2784314, b: 0.89019614, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -548,8 +548,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8018868, g: 0, b: 0.030460313, a: 1}
+  m_Color: {r: 0.6666667, g: 0, b: 0.53333336, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1000,8 +1000,20 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 8053231151338893841, guid: 67caa3c3ccfabd94ca4de75e9ab7b021, type: 3}
-      propertyPath: orthographic size
-      value: 0.9
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053231151338893841, guid: 67caa3c3ccfabd94ca4de75e9ab7b021, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053231151338893841, guid: 67caa3c3ccfabd94ca4de75e9ab7b021, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053231151338893841, guid: 67caa3c3ccfabd94ca4de75e9ab7b021, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1165,7 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8018868, g: 0, b: 0.030460313, a: 1}
+  m_Color: {r: 0.6666667, g: 0, b: 0.53333336, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1212,7 +1224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1807920319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1245,7 +1257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1429,15 +1441,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1563,15 +1575,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mariko's Round Adventure
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290973951
+  m_fontColor: {r: 1, g: 0.06132078, b: 0.76410156, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1796,6 +1808,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eb5c37c586a6d548bf1c33408d12958, type: 3}
+--- !u!1001 &3778103677252436656
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13052616
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7706848877918816980, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649954084909010565, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
+      propertyPath: m_Name
+      value: ScrollingBackground
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5f48c8b93dda4e4a971727e8038c596, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1803,6 +1872,7 @@ SceneRoots:
   - {fileID: 1382714847}
   - {fileID: 255795598}
   - {fileID: 427079665}
+  - {fileID: 3778103677252436656}
   - {fileID: 480626463}
   - {fileID: 1003300376}
   - {fileID: 3550628372323995086}

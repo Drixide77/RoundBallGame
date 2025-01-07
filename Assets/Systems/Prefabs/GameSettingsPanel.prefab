@@ -186,10 +186,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 1.5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -20
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -397,8 +397,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: VOL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -616,8 +616,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SFX
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -966,8 +966,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: RES
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
-  m_sharedMaterial: {fileID: 1209402710586692543, guid: 4a579185295c66847b90287c2e17dbef, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
+  m_sharedMaterial: {fileID: 6628326573060288866, guid: e1d62ca58e820d94790fbc973828623d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
