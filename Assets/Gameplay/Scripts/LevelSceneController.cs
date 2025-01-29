@@ -56,7 +56,7 @@ namespace RoundBallGame.Gameplay
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeybindingsDefinition.PauseKey1) || Input.GetKeyDown(KeybindingsDefinition.PauseKey1))
+            if (Input.GetKeyDown(KeybindingsDefinition.PauseKey1) || Input.GetKeyDown(KeybindingsDefinition.PauseKey2))
             {
                 HandlePauseInput();
             }

@@ -6,11 +6,11 @@ namespace RoundBallGame.Systems.Data
     public static class KeybindingsDefinition
     {
         // Gameplay
-        public static KeyCode RestartLevelKey = KeyCode.R;
+        public static readonly KeyCode RestartLevelKey = KeyCode.R;
         
         // Misc
-        public static KeyCode PauseKey1 = KeyCode.Escape;
-        public static KeyCode PauseKey2 = KeyCode.P;
-        public static KeyCode FullscreenToggleKey = KeyCode.F11;
+        public static readonly KeyCode PauseKey1 = KeyCode.Escape;
+        public static readonly KeyCode PauseKey2 = KeyCode.P;
+        public static readonly KeyCode FullscreenToggleKey = KeyCode.F11;
     }
 }
