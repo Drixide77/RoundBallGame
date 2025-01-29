@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using RoundBallGame.Systems.Data;
+using RoundBallGame.Systems.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +18,9 @@ namespace RoundBallGame.Systems
         [SerializeField] private float stepTime;
         [SerializeField] private float holdTime;
         [SerializeField] private float endSequenceDelay;
+        [Space(10)]
+        [Header("Audio")]
+        [SerializeField] private AudioRepositoryEntryId[] audiosToPlay;
         [Space(10)]
         [Header("Assets")]
         [SerializeField] private string mainMenuSceneName;
@@ -53,23 +58,24 @@ namespace RoundBallGame.Systems
 
         private IEnumerator PresentLogosCoroutine()
         {
-            foreach (var logo in logosToShow)
+            for (int i = 0; i < logosToShow.Length; ++i)
             {
                 Color temp;
                 yield return new WaitForSeconds(initialDelay);
-                while (logo.color.a < 1f)
+                AudioService.Instance.PlayMusicClip(audiosToPlay[i]);
+                while (logosToShow[i].color.a < 1f)
                 {
-                    temp = logo.color;
+                    temp = logosToShow[i].color;
                     temp.a += alphaStepAmount;
-                    logo.color = temp;
+                    logosToShow[i].color = temp;
                     yield return new WaitForSeconds(stepTime);
                 }
                 yield return new WaitForSeconds(holdTime);
-                while (logo.color.a > 0f)
+                while (logosToShow[i].color.a > 0f)
                 {
-                    temp = logo.color;
+                    temp = logosToShow[i].color;
                     temp.a -= alphaStepAmount;
-                    logo.color = temp;
+                    logosToShow[i].color = temp;
                     yield return new WaitForSeconds(stepTime);
                 }
             }

@@ -1,3 +1,5 @@
+using RoundBallGame.Systems.Data;
+using RoundBallGame.Systems.Services;
 using UnityEngine;
 
 namespace RoundBallGame.Gameplay.Elements
@@ -37,6 +39,12 @@ namespace RoundBallGame.Gameplay.Elements
         public void ApplyVelocity(Vector2 velocity)
         {
             rigidBody.velocity = velocity;
+        }
+        
+        private void OnCollisionEnter2D(Collision2D _)
+        {
+            // Boing!
+            AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.PlayerBounceSound);
         }
     }
 }

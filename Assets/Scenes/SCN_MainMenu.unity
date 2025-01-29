@@ -401,6 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255795598}
   - component: {fileID: 255795599}
+  - component: {fileID: 255795600}
   m_Layer: 0
   m_Name: SceneControllers
   m_TagString: Untagged
@@ -448,6 +449,21 @@ MonoBehaviour:
   holdTime: 1
   levelButtonPrefab: {fileID: 8060933221385474507, guid: bd174549a99b0484e8a4351bcc9ce868, type: 3}
   levelSceneName: SCN_Level
+--- !u!114 &255795600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255795597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708f5829e7f8468e81f2e517ae1dfb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clipToPlay: 1
+  auidoType: 0
+  loop: 1
 --- !u!224 &260030603 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3441874061534949829, guid: bd174549a99b0484e8a4351bcc9ce868, type: 3}

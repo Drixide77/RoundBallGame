@@ -1,4 +1,6 @@
 ﻿using RoundBallGame.Gameplay.Camera;
+using RoundBallGame.Systems.Data;
+using RoundBallGame.Systems.Services;
 using UnityEngine;
 
 namespace RoundBallGame.Gameplay.Elements
@@ -52,6 +54,7 @@ namespace RoundBallGame.Gameplay.Elements
 
         private void ShootPlayerBall()
         {
+            AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.CannonShotSound);
             inAimingMode = false;
             _cameraController.SetCannonMode(false);
             cannonGraphic.SetActive(false);

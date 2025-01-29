@@ -21,9 +21,16 @@ namespace RoundBallGame.Systems.Data
     public enum AudioRepositoryEntryId
     {
         // BGM (0 - 999)
-        Music01 = 0,
+        CompanyLogoMusic = 0,
+        MainMenuMusic = 1,
         
         // SFX (1000 - X)
-        Sound01 = 1000,
+        UIButtonSound = 1000,
+        PlayerBounceSound = 1001,
+        CannonShotSound = 1002,
+        PauseMenuSound = 1003,
+        GoalReachedSound = 1004,
+        GameOverSound = 1005,
+        
     }
 }

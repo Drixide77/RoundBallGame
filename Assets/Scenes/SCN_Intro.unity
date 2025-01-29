@@ -220,7 +220,6 @@ GameObject:
   m_Component:
   - component: {fileID: 255795598}
   - component: {fileID: 255795599}
-  - component: {fileID: 255795600}
   m_Layer: 0
   m_Name: SceneControllers
   m_TagString: Untagged
@@ -259,25 +258,11 @@ MonoBehaviour:
   - {fileID: 29625154}
   initialDelay: 1
   alphaStepAmount: 0.2
-  stepTime: 0.2
-  holdTime: 2
+  stepTime: 0.1
+  holdTime: 1.5
   endSequenceDelay: 1
+  audiosToPlay: 00000000
   mainMenuSceneName: SCN_MainMenu
---- !u!114 &255795600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 255795597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 708f5829e7f8468e81f2e517ae1dfb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipToPlay: {fileID: 8300000, guid: d528631ec5f13884698fcd1963e43eba, type: 3}
-  auidoType: 0
-  loop: 1
 --- !u!1 &427079661
 GameObject:
   m_ObjectHideFlags: 0

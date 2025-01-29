@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMList:
   - Id: 0
-    Clip: {fileID: 8300000, guid: d528631ec5f13884698fcd1963e43eba, type: 3}
+    Clip: {fileID: 8300000, guid: bb1e103b6093b1d44ae414d376a2df7c, type: 3}
+  - Id: 1
+    Clip: {fileID: 8300000, guid: 97e2de1d0dd04574192cfb4e38ec559e, type: 3}
   SFXList:
   - Id: 1000
-    Clip: {fileID: 8300000, guid: 33c4ecd191bdda74aaaa1584c6ed1c77, type: 3}
+    Clip: {fileID: 8300000, guid: cdfe0807349813344a1f4430bbc059a8, type: 3}
+  - Id: 1001
+    Clip: {fileID: 8300000, guid: 66f1fb209e92dd44ea03597bc7b35592, type: 3}
+  - Id: 1002
+    Clip: {fileID: 8300000, guid: f43af4433b8e1ff4cb1ec5ea89ff57b0, type: 3}
+  - Id: 1003
+    Clip: {fileID: 8300000, guid: ee4b1e32dc1364a4783367e4e3cfc025, type: 3}
+  - Id: 1004
+    Clip: {fileID: 8300000, guid: 1c7425ca52da6e644b52968df8c030c5, type: 3}
+  - Id: 1005
+    Clip: {fileID: 8300000, guid: 03d542b3711cd11418fb4b7f5bdc83c1, type: 3}

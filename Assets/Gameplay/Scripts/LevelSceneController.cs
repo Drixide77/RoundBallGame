@@ -139,6 +139,7 @@ namespace RoundBallGame.Gameplay
         
         private void OnGoalReached()
         {
+            AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.GoalReachedSound);
             playerInstance.Hide();
             Time.timeScale = 0f;
             DataService.Instance.SetLevelProgress(DataService.Instance.GetCurrentLevel(), true);

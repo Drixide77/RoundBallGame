@@ -1,5 +1,6 @@
 using System;
 using RoundBallGame.Systems;
+using RoundBallGame.Systems.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,6 +65,7 @@ namespace RoundBallGame.Gameplay
             switch (type)
             {
                 case PauseEndScreenType.Pause:
+                    AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.PauseMenuSound);
                     messageText.text = PauseScreenMessage;
                     resumeButton.gameObject.SetActive(true);
                     nextLevelButton.gameObject.SetActive(false);
@@ -79,6 +81,7 @@ namespace RoundBallGame.Gameplay
                     menuButton.gameObject.SetActive(true);
                     break;
                 case PauseEndScreenType.GameOver:
+                    AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.GameOverSound);
                     messageText.text = GameOverScreenMessage;
                     resumeButton.gameObject.SetActive(false);
                     nextLevelButton.gameObject.SetActive(false);

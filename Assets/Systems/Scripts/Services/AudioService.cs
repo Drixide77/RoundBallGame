@@ -48,13 +48,15 @@ namespace RoundBallGame.Systems.Services
         public void PlayMusicClip(AudioClip clipToPlay, bool loop = false)
         {
             musicAudioSource.loop = loop;
-            musicAudioSource.PlayOneShot(clipToPlay);
+            musicAudioSource.clip = clipToPlay;
+            musicAudioSource.Play();
         }
         
         public void PlayMusicClip(AudioRepositoryEntryId Id, bool loop = false)
         {
             musicAudioSource.loop = loop;
-            musicAudioSource.PlayOneShot(_musicDictionary[Id]);
+            musicAudioSource.clip = _musicDictionary[Id];
+            musicAudioSource.Play();
         }
 
         public void PlaySFXClip(AudioClip clipToPlay, bool loop = false)
