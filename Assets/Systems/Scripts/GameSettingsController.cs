@@ -37,7 +37,7 @@ namespace RoundBallGame.Systems
         private void Start()
         {
             SetCanvasGroupEnabled(settingsPanelCanvasGroup, false);
-            volumeToggle.onValueChanged.AddListener(OnVolumeToggleChanged);
+            volumeToggle.onValueChanged.AddListener(OnMusicToggleChanged);
             sFXToggle.onValueChanged.AddListener(OnSFXToggleChanged);
             fullscreenToggle.SetIsOnWithoutNotify(Screen.fullScreen);
             fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggleChanged);
@@ -78,16 +78,14 @@ namespace RoundBallGame.Systems
             canvasGroup.blocksRaycasts = enabled;
         }
 
-        private void OnVolumeToggleChanged(bool value)
+        private void OnMusicToggleChanged(bool value)
         {
-            // TODO - Implement
-            Debug.Log("Volume Enabled = " + value);
+            AudioService.Instance.SetMusicVolume(value ? 1f : 0f);
         }
         
         private void OnSFXToggleChanged(bool value)
         {
-            // TODO - Implement
-            Debug.Log("SFX Enabled = " + value);
+            AudioService.Instance.SetSFXVolume(value ? 1f : 0f);
         }
         
         private void OnFullscreenToggleChanged(bool value)

@@ -1801,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3547856189005632743, guid: 4eb5c37c586a6d548bf1c33408d12958, type: 3}
       propertyPath: m_Name
-      value: GlobalServices
+      value: FallbackGlobalServices
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
