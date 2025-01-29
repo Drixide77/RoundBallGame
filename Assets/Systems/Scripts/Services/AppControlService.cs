@@ -1,7 +1,7 @@
 using RoundBallGame.Systems.Data;
 using UnityEngine;
 
-namespace RoundBallGame.Systems
+namespace RoundBallGame.Systems.Services
 {
     public class AppControlService : MonoBehaviour
     {

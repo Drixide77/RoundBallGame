@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 157760294}
   - component: {fileID: 157760293}
   - component: {fileID: 157760292}
+  - component: {fileID: 157760295}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -317,9 +318,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -377,6 +378,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157760290}
   m_CullTransparentMesh: 1
+--- !u!114 &157760295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157760290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41bef20f65f9574cbccc562b70485fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick: 1000
 --- !u!1 &255795597
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +852,7 @@ GameObject:
   - component: {fileID: 1070654969}
   - component: {fileID: 1070654968}
   - component: {fileID: 1070654967}
+  - component: {fileID: 1070654970}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -887,9 +902,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -947,6 +962,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070654965}
   m_CullTransparentMesh: 1
+--- !u!114 &1070654970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070654965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41bef20f65f9574cbccc562b70485fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick: 1000
 --- !u!1001 &1382714847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,6 +1121,7 @@ GameObject:
   - component: {fileID: 1679758947}
   - component: {fileID: 1679758946}
   - component: {fileID: 1679758945}
+  - component: {fileID: 1679758948}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1142,9 +1171,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1202,6 +1231,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679758943}
   m_CullTransparentMesh: 1
+--- !u!114 &1679758948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679758943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41bef20f65f9574cbccc562b70485fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnClick: 1000
 --- !u!20 &1690099218 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8053231151338893841, guid: 67caa3c3ccfabd94ca4de75e9ab7b021, type: 3}

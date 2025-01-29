@@ -3,7 +3,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using RoundBallGame.Systems.Data;
 using UnityEngine;
 
-namespace RoundBallGame.Systems
+namespace RoundBallGame.Systems.Services
 {
     public class DataService : MonoBehaviour
     {

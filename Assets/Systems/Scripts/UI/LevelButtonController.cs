@@ -1,10 +1,11 @@
 using RoundBallGame.Systems.Data;
+using RoundBallGame.Systems.Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace RoundBallGame.Systems
+namespace RoundBallGame.Systems.UI
 {
     public class LevelButtonController : MonoBehaviour
     {
