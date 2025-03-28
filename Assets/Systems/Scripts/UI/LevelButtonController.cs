@@ -15,10 +15,13 @@ namespace RoundBallGame.Systems.UI
         [SerializeField] private Image image;
         [SerializeField] private TMP_Text text;
         [SerializeField] private Button button;
+        [SerializeField] private Image[] collectiblesImages;
         private string levelScene = "SCN_Level";
         [Header("Settings")]
         [SerializeField] private Color defaultColor;
         [SerializeField] private Color completeColor;
+        [SerializeField] private Color uncollectedColor;
+        [SerializeField] private Color collectedColor;
         
         private void Awake()
         {
@@ -40,6 +43,13 @@ namespace RoundBallGame.Systems.UI
             if (levelIndex < 9) buttonText += "0";
             buttonText += levelIndex + 1;
             text.text = buttonText;
+            for (int i = 0; i < levelProgress.CollectibleProgress.Length; i++)
+            {
+                if (i < collectiblesImages.Length)
+                {
+                    collectiblesImages[i].color = levelProgress.CollectibleProgress[i] ? collectedColor : uncollectedColor;
+                }
+            }
         }
 
         private void OnButtonClicked()

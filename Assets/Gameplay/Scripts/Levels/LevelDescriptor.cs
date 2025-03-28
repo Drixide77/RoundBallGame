@@ -9,5 +9,6 @@ namespace RoundBallGame.Gameplay.Levels
         public LevelGoalController Goal;
         public DeathTrigger[] DeathTriggers;
         public CannonController[] Cannons;
+        public CollectibleController[] Collectibles;
     }
 }

@@ -52,7 +52,8 @@ namespace RoundBallGame.Systems.Services
                 ProgressData.LevelsProgressData[i] = new LevelProgressData
                 {
                     LevelIndex = i,
-                    IsCompleted = false
+                    IsCompleted = false,
+                    CollectibleProgress = new bool[3]
                 };
             }
         }
@@ -67,9 +68,10 @@ namespace RoundBallGame.Systems.Services
             return currentLevelIndex;
         }
         
-        public void SetLevelProgress(int levelIndex, bool isCompleted)
+        public void SetLevelProgress(int levelIndex, bool isCompleted, bool[] collectibleProgress)
         {
             ProgressData.LevelsProgressData[levelIndex].IsCompleted = isCompleted;
+            ProgressData.LevelsProgressData[levelIndex].CollectibleProgress = collectibleProgress;
             SaveProgressData();
         }
         

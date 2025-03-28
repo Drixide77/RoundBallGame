@@ -29,6 +29,9 @@ namespace RoundBallGame.Gameplay
         private LevelCollectionSO levelCollection;
         private LevelDescriptor currentLevelInstance;
         private PlayerBallController playerInstance;
+        private LevelProgressData levelProgressData;
+
+        private bool[] collectibleProgress;
 
         // Unity Methods
         private void Awake()
@@ -36,8 +39,10 @@ namespace RoundBallGame.Gameplay
             playerInstance = Instantiate(playerPrefab,  Vector3.zero, Quaternion.identity, playerParent).GetComponent<PlayerBallController>();
             playerInstance.Initialize();
             playerInstance.Hide();
+            levelProgressData = DataService.Instance.GetLevelProgress(DataService.Instance.GetCurrentLevel());
             levelCollection = DataService.Instance.GetLevelCollection();
             cameraController.SetTarget(playerInstance.transform);
+            collectibleProgress = levelProgressData.CollectibleProgress;
             AddEventCallbacks();
         }
 
@@ -107,6 +112,11 @@ namespace RoundBallGame.Gameplay
             {
                 deathTrigger.OnDeathTriggerTouched += OnDeathTriggerTouched;
             }
+
+            foreach (var collectible in currentLevelInstance.Collectibles)
+            {
+                collectible.OnCollectibleCollected += OnCollectibleCollected;
+            }
         }
         
         private void CleanUpLevel()
@@ -116,6 +126,10 @@ namespace RoundBallGame.Gameplay
             foreach (var deathTrigger in currentLevelInstance.DeathTriggers)
             {
                 deathTrigger.OnDeathTriggerTouched -= OnDeathTriggerTouched;
+            }
+            foreach (var collectible in currentLevelInstance.Collectibles)
+            {
+                collectible.OnCollectibleCollected -= OnCollectibleCollected;
             }
             Destroy(currentLevelInstance.gameObject);
         }
@@ -142,7 +156,7 @@ namespace RoundBallGame.Gameplay
             AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.GoalReachedSound);
             playerInstance.Hide();
             Time.timeScale = 0f;
-            DataService.Instance.SetLevelProgress(DataService.Instance.GetCurrentLevel(), true);
+            DataService.Instance.SetLevelProgress(DataService.Instance.GetCurrentLevel(), true, collectibleProgress);
             pauseEndScreenController.Show(PauseEndScreenController.PauseEndScreenType.LevelComplete);
         }
 
@@ -152,6 +166,13 @@ namespace RoundBallGame.Gameplay
             Time.timeScale = 0f;
             pauseEndScreenController.Show(PauseEndScreenController.PauseEndScreenType.GameOver);
         }
+        
+        private void OnCollectibleCollected(int index)
+        {
+            AudioService.Instance.PlaySFXClip(AudioRepositoryEntryId.UIButtonSound);
+            collectibleProgress[index] = true;
+        }
+
 
         private void OnPauseLevel()
         {

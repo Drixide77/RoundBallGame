@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Serialization;
 
 namespace RoundBallGame.Systems.Data
 {
@@ -13,5 +14,6 @@ namespace RoundBallGame.Systems.Data
     {
         public int LevelIndex;
         public bool IsCompleted;
+        public bool[] CollectibleProgress;
     }
 }
